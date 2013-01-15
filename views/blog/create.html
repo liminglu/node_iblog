@@ -1,0 +1,194 @@
+<style type="text/css">
+	.blog-create {
+		padding: 10px;
+		width: 500px;
+	}
+	.blog-create .blog-title {
+		width: 480px;
+		height: 25px;
+		line-height: 25px;
+		padding-left: 15px;
+		-webkit-border-radius: 5px;
+		border-color: #C3C3C3;
+	}
+	
+	.blog-create .blog-cnt {
+		width: 480px;
+		border-color: #C3C3C3;
+		border-top: none;
+		height: 240px;
+	}
+	
+	.blog-create .blog-submit {
+		border: none;
+		height: 25px;
+		line-height: 25px;
+		width: 50px;
+		color: white;
+		background: #CCC;
+		cursor: pointer;
+		font-size: 15px;
+		font-weight: 600;
+		-webkit-border-radius: 5px;
+	}
+	
+	/* markdown editor */
+	.wmd-button-bar {
+	  margin-left: 0px;
+	  background: Sliver;
+	}
+	.wmd-button-row {
+	  position: relative;
+	  height: 20px;
+	  margin: 0px 0px 5px 0px;
+	}
+	.wmd-button {
+	  width: 20px;
+	  height: 20px;
+	  padding-left: 2px;
+	  padding-right: 3px;
+	  position: absolute;
+	  display: inline-block;
+	  list-style: none;
+	  cursor: pointer;
+	}
+	.wmd-button > span {
+	  background-image: url(/libs/pagedown/wmd-buttons.png);
+	  background-repeat: no-repeat;
+	  background-position: 0px 0px;
+	  width: 20px;
+	  height: 20px;
+	  display: inline-block;
+	}
+	.wmd-spacer {
+	  width: 1px; 
+	  height: 20px; 
+	  margin-left: 14px;
+	  position: absolute;
+	  background-color: Silver;
+	  display: inline-block; 
+	  list-style: none;
+	}
+	.wmd-spacer1 {
+	  left: 50px;
+	}
+	.wmd-spacer2 {
+	  left: 175px;
+	}
+	.wmd-spacer3{
+	  left: 300px;
+	}
+	.wmd-preview {
+	  width: 560px;
+	  background: #fff;
+	  border: 1px solid #ccc;
+	  padding: 10px;
+	  overflow: auto;
+	
+	  -webkit-border-radius: 3px;
+	  -moz-border-radius: 3px;
+	  -o-border-radius: 3px;
+	  border-radius: 3px;
+	
+	  -webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.15);
+	  -moz-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.15);
+	  -o-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.15);
+	  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.15);
+	}
+	textarea[id^=wmd-input] {
+	  height: 200px;
+	}
+	.topic-wmd-preview {
+	  height: 400px;
+	}
+	.wmd-preview {
+	  height: 213px;
+	}
+	.reply2-wmd-preview {
+	  width: 518px;
+	}
+	.wmd-prompt-background {
+	  background-color: Black;
+	}
+	.wmd-prompt-dialog {
+	  -webkit-border-radius: 3px;
+	  -moz-border-radius: 3px;
+	  -o-border-radius: 3px;
+	  border-radius: 3px;
+	
+	  border: 1px solid #cccccc;
+	  background-color: #F5F5F5;
+	}
+	.put_top {
+	  color: white;
+	  background: hsl(240,30%,80%);
+	  padding: 1px 2px;
+	  border-radius: 2px;
+	  -webkit-border-radius: 2px;
+	  -moz-border-radius: 2px;
+	  -o-border-radius: 2px;
+	}
+</style>
+
+<div class="blog-create xbox">
+	<div class="ui-xbox-action" data-role="action"><a href="#" class="ui-xbox-close" id="close">×</a></div>
+	<form class="blog-form" action="/blog/create" method="post">
+	<input type="text" placeholder="type title …" name="title" class="blog-title" />
+	<div id='wmd-button-bar' class=""></div>
+	<textarea  class="blog-cnt" id="wmd-input"></textarea>
+	<!-- markdown preview -->
+	<textarea  id='wmd-preview' class='wmd-preview topic-wmd-preview fn-hide blog-cnt-hidden' name="content"></textarea>
+	<!-- _csrf 防止post提交出现403 forbidden --> 
+	<input type='hidden' name='_csrf' value='<%= csrf %>' />
+	<input type="button" class="blog-submit" value="add">
+	</form>
+
+</div>
+
+<!-- markdown editor -->
+<script type='text/javascript' src='/libs/pagedown/Markdown.Converter.js'></script>
+<script type='text/javascript' src='/javascripts/showdown.js'></script>
+<script type='text/javascript' src='/libs/pagedown/Markdown.Editor.js'></script>
+
+<!-- ajax-upload -->
+<script type='text/javascript' src='/libs/ajax-upload/ajaxupload.js'></script>
+
+<script type="text/javascript">
+	seajs.use(['jquery'], function($) {
+	    $('#close').click(function(){
+	        window.frameElement.trigger('close'); 
+	    });
+	    
+	    $('.blog-submit').click(function() {
+	    	var title = $('.blog-title').val();
+	    	//transfer markdown 
+	    	editor.makePreviewHtml();
+	    	var content = $('.blog-cnt-hidden').val();
+	    	var csrf = $('input[name="_csrf"]').val();
+	    	
+	    	$.ajax({
+					  url: '/blog/create',
+					  type:'post',
+					  data:{title:title,content:content,_csrf:csrf},
+					  
+					  success: function(res) {
+					  	if(res.stat == 'success') {
+							window.top.location.reload();				  		
+					  	}
+					  }
+				});
+	    })
+	    
+	    //markdown
+		 var editor;
+		 function run_md_editor(){
+		    var converter = new Showdown.converter();
+        	editor = new Markdown.Editor(converter);
+		    editor.run();
+		 }
+		 
+		 run_md_editor();
+		 
+	});
+
+</script>

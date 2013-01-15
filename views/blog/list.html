@@ -1,0 +1,296 @@
+<style type="text/css">
+	.dynamic-to-top {
+		display: inline; 
+	}
+	
+	/** window 8 style */
+	.window8 .articlemenu {
+		width: 350px;
+		background:none;
+	}
+	
+	.window8 a.blogTitle {
+		float: none;
+		font-size: 18px;
+	}
+	.window8 .content_banner {
+		width: 100%;
+	}
+	.window8 .pagenavi {
+		clear: both;
+	}
+
+</style>
+
+<div class="wapper fn-clear">
+	            <div class="nav top">
+	            	<a onfocus="this.blur()" href="http://www.liminglu.cn" id="logo" title="waylon"><cite>waylon</cite><img style="position:absolute;top:-2px" src="/images/waylon-new.png" width="60" height="60" /></a>
+
+	           </div>
+	           <div class="login nav"> 
+	           		<!--
+<div id="wb_connect_btn">
+	           			
+	           		</div>
+-->					
+					<% if (!locals.current_user) { %>
+					<a href="/signup?from=blog" class="signup">登陆</a>
+					<% } else { %>
+	           		<a href="/blog/add" class="blog-create">发博文</a> <!-- /blog/add -->
+	           		<a href="/signout" class="signout">退出</a>
+	           		<% } %>
+	           </div>
+	          
+	           
+	           		
+	           
+</div>
+<!-- navigator -->
+<ul class="sub-nav">
+	<li class="sub-nav-item"><a href="/wd">Geek</a></li>
+<!-- 	<li class="sub-nav-item"><a href="/temp">Demo</a></li> -->
+	<li class="sub-nav-item"><a href="/photo"><span class="hot"><img src="https://i.alipayobjects.com/e/201211/1dacLwrWJZ.png"></span>Photo</a></li>
+</ul>
+
+
+<div class="blog <%= locals.pageStyle %>">
+	<div class="main">
+
+<!-- blogs -->	
+
+<% if(locals.blogs && locals.blogs.length > 0 ) { %>
+	<% for (var i = 0; i < blogs.length; i++) {
+        var blog = blogs[i];
+        var month = parseInt(blog[0].create_at.getMonth()) + 1;
+        var day = blog[0].create_at.getDate();
+        var create_at = blog[0].create_at.getFullYear() + '/' + month + '/' + day;
+        var reply_count = blog[0].reply_count;
+        var content =  blog[0].content.length > 200 ? blog[0].content.substring(0,200) + '…' : blog[0].content;   
+    %>
+    <ul class="articlemenu">
+    <li>
+    	<a href="" class="animated tada" target="_blank"><img alt="minren" src="/images/me_icon_50.png" file="/images/me_icon_50.png" class="avatar  animated tada avatar-43 photo" height="43" width="43" lazyloadpass="1" style="opacity: 1; "></a> 
+        
+        <a href="/blog/<%= blog[0]._id %>" class="blogTitle" rel="bookmark" title="<%= blog[0].title %>"><%= blog[0].title %></a>
+        <div class="blogPs">
+on <%= create_at %></div> 
+	<span class="comments"><a href="" class="up" title="<%= blog[0].title %>"><%= reply_count %></a></span>
+
+            <!--content_banner-->
+            <div class="content_banner">
+                <div class="text">
+  					<%- content %>
+            	</div>
+            </div>
+            <!--toolBar-->
+            <div class="toolBar">
+                <p>	<a href="/blog/<%= blog[0]._id %>"
+                    class="more">继续阅读</a>
+                </p>
+            </div>
+    </li>
+    </ul>
+     <% } %>
+ <% } %>
+<!-- blogs -->	 
+
+	
+<!-- page navigation -->
+<% if(locals.blogCount && locals.blogCount > 7 ) { %>
+<div class="pagenavi"> 
+	<% if(1 != locals.currentPage) { 
+		var lastPage = parseInt(locals.currentPage) - 1;
+		var lastLink;
+		if(locals.weibo == '') {
+			lastLink = '/blog?page=' + lastPage + '&switch=mobile';
+		}else {
+			lastLink = '/blog?page=' + lastPage;
+		}
+	%>
+		
+		<a class="page-numbers page-nextpre" href="<%= lastLink %>"
+    title="上页">上页</a>
+    <% } %>
+		<% for (var i = 1,j = Math.ceil(blogCount/7);i <= j ;i++) {
+			var link ;
+			//下一页
+			var nextLink;
+			//末页
+			var totalLink;
+			if(locals.currentPage) {
+				if(locals.currentPage == j) {
+					var nextPage = parseInt(locals.currentPage);
+				}else{
+					var nextPage = parseInt(locals.currentPage) + 1;
+				}
+				
+				if(locals.weibo == '') {
+					nextLink = '/blog?page=' + nextPage + '&switch=mobile';
+					link = '/blog?page=' + i + '&switch=mobile';
+					totalLink = '/blog?page=' + j + '&switch=mobile';
+				}else {
+					nextLink = '/blog?page=' + nextPage;
+					link = '/blog?page=' + i;
+					totalLink = '/blog?page=' + j;
+				}
+				
+			}else {
+				var nextPage = 1;
+			}
+			
+			
+			
+    	%>
+	    	<% if(i == locals.currentPage) { %>
+	    	<span class="page-numbers current"><%= i %></span>
+	    	
+	    	<% }else { %>
+	    	<a class="page-numbers " href="<%= link %>"
+	    title="第<%= i %>页"><%= i %></a>
+	    	<% } %>
+	    	
+    	<% } %>
+  
+    <span class="page-numbers1">...</span>
+    <a class="page-numbers " href="<%= totalLink %>"
+    title="末页">末页</a>
+    <% if(locals.currentPage != j) { %> <!-- ejs 局部变量类似于全局变量，此时的j已经超出定义的上下文范围，但能引用到 -->
+    <a class="page-numbers page-nextpre" href="<%= nextLink %>"
+    title="下页">下页</a>
+    <% } %>
+   
+</div>
+<% } %>
+<!-- page navigation end -->
+
+</div> <!-- main end -->
+
+
+<!-- sidebar start -->
+	<div class="sidebar">
+		<!-- weibo info-->
+			<% if(locals.weibo != '') { %>
+				<%- locals.weibo %>
+			<% } %>
+		<!-- weibo info -->
+		<!-- 侧边栏模块 -->
+		<div class="widget">
+		    <div class="ilovertitle"><span class="ilovertitlespan">友情链接</span>
+		    </div>
+		    <!-- 友情连接 -->
+		    <ul class="xoxo blogroll">
+		        <li><a href="http://sosilence.info" title="梨花"
+		            target="_blank">梨花</a>
+		        </li>
+		    </ul>
+		    <!-- 友情连接 -->
+		</div>
+		<!-- 侧边栏模块 -->
+	</div> <!-- sidebar end -->
+<!-- to top -->
+<a href="#" id="dynamic-to-top" style="" class="dynamic-to-top fn-hide"><span>&nbsp;</span></a>
+</div>
+<div class="clearfix"></div>
+<div id="footer" class="">
+<% if(locals.weibo == '') {
+	var switchPortal = '/blog';
+	var switchTitle = '回归桌面，依旧精彩'; 
+ }else {
+ 	var switchPortal = '/blog?switch=mobile';
+	var switchTitle = '移动体验，精彩无限'; 
+} %>
+    <div id="footerbar">
+        <!--Copyright-->
+    
+        <div class="copyright">
+            <p>	<span>
+					Copyright ©&nbsp; 2011-2012  <a href="#">Alipay AppTeam</a> | <a href="<%= switchPortal %>" class="" title="移动入口"><%= switchTitle %></a>. All Rights Reserved.
+				</span>
+
+            </p>
+        </div>
+        <!--Copyright End-->
+    </div>
+</div>
+<script src=" http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=1867004476" type="text/javascript" charset="utf-8"></script>
+
+<script type="text/javascript">
+	seajs.use(['jquery','alipay/xbox/0.9.7/xbox-debug'],function($,Xbox) {
+	
+		//jquery版本的订阅与发布事件
+		/*
+		**订阅与绑定事件差异
+		**订阅的相当于是接口，不需要考虑具体的实现；而绑定与业务绑定，根据当前逻辑考虑实现
+		**订阅是一种广播通信形式，而绑定不具有通信;广播的好处在于不用通知调用者，达到解耦合
+		*/
+    	(function ($) {
+		
+		    var o = $({});
+		
+		    $.subscribe = function () {
+		        o.on.apply(o, arguments);
+		    };
+		
+		    $.unsubscribe = function () {
+		        o.off.apply(o, arguments);
+		    };
+		
+		    $.publish = function () {
+		        o.trigger.apply(o, arguments);
+		    };
+		
+		} ($));
+		
+		var xbox = new Xbox({
+                type: 'iframe',
+                trigger: '.blog-create',
+                height:'400px',
+                width:'510px',
+                isOld:true
+        }).before('show',function() {
+         this.set('content', this.activeTrigger.attr('href'));
+    	}).render();
+    	
+    	//scroll事情，当窗体高度＋滚轮高度大于文档高度时，显示向上箭头
+    	$(window).scroll(function () {
+    	 	
+    		 if (($(window).height() + $(window).scrollTop()) >= $('body').height() * 2) {
+    		 	//显示向上箭头
+    		 	$.publish('topic/show',["#dynamic-to-top"]);
+    		 }else if(($(window).height() + $(window).scrollTop()) <= $('body').height()) {
+    		 	$.publish('topic/hide',["#dynamic-to-top"]);
+    		 }
+    	})
+    	
+    	$('.dynamic-to-top').click(function() {
+    		//隐藏向上箭头
+    		$.publish('topic/hide',["#dynamic-to-top"]);
+    	})
+    	
+    	//订阅事件与对应的回调函数
+    	$.subscribe('topic/show',show);
+    	$.subscribe('topic/hide',hide);
+    	
+		
+		//负责显示对象
+		function show() {
+			
+			for(var i = 0,j = arguments.length;i < j;i++) {
+				//console.log(arguments[i]);
+				$(arguments[i]).removeClass('fn-hide');
+				
+			}
+		}
+		
+		//负责隐藏对象
+		function hide() {
+			for(var i = 0,j = arguments.length;i < j;i++) {
+				$(arguments[i]).addClass('fn-hide');
+			}
+		}
+		
+	
+	
+	})
+	
+</script>

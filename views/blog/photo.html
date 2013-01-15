@@ -1,0 +1,105 @@
+<style type="text/css">
+	.photo {
+		margin-bottom: 80px;
+	}
+	
+	.photo .nav {
+		line-height: 60px;
+	}
+	
+	.photo .photo_post {
+		margin: 0 auto;
+		width: 600px;
+	}
+	
+	.photo .photo-text {
+		width: 400px;
+		padding: 10px;
+		-webkit-border-radius:4px;
+	}
+	
+	.photo .photo-btn {
+		height: 40px;
+		background-color: #41B3E0;
+		-webkit-border-radius: 5px;
+		line-height: 30px;
+		margin: 0;
+		-webkit-box-shadow: 0 0 0 1px #0086BA inset, /* Outer bevel */ 0 0 0 2px #6CDCEA inset, /* Inner bevel */ 0 30px 20px -18px rgba(255, 255, 255, 0.65) inset, /* Inner gradient */ 1px 1px 3px rgba(0, 0, 0, 0.2) /* Drop shadow */;
+		color: white;
+		border: none;
+		cursor: pointer;
+		padding: 0 10px;
+	}
+	
+	.photo .tips {
+		float: right;
+		line-height: 20px;
+		height: 10px;
+		position: relative;
+		top: -50px;
+		color: white;
+		font-size: 14px;
+		font-weight: 600;
+	}
+	
+	.photo-cnt .blank,.loading_css3 {
+		margin: 0 auto;
+		text-align: center;
+		font-size: 40px;
+		font-weight: 600;
+		color: #C3C3C3;
+	}
+	
+	.loading_css3{padding-top:50px;display:block;/*position:absolute;z-index:1;left:50%;top:50%;margin-top:-24px;margin-left:-24px; width:48px; */height:48px;background:url(/images/css3_loading.png) 0 0;-webkit-animation-duration:500ms;-webkit-animation-iteration-count:infinite;-webkit-animation-timing-function:step-start;-webkit-animation-name:animate01}@-webkit-keyframes animate01{0%{background-position:0 0}12.5%{background-position:48px 0}25%{background-position:96px 0}37.5%{background-position:144px 0}50%{background-position:192px 0}62.5%{background-position:240px 0}75%{background-position:288px 0}87.5%{background-position:336px 0}100%{background-position:384px 0}}.wrapper{width:200px;height:200px;border:3px solid #808080;border-radius:5px;position:relative;}
+</style>
+		
+		<div class="wapper fn-clear photo">
+	            <div class="nav top">
+	            	<a onfocus="this.blur()" href="http://www.liminglu.cn" id="logo" title="waylon"><cite>waylon</cite><img style="position:absolute;top:-2px" src="/images/waylon-new.png" width="60" height="60" /></a>
+	            	<form action="/photo" method="post" class="photo_post">
+	
+					<input class="photo-text" id="photo-text" name="url" placeholder="www.taobao.com、www.mogujie.com、www.douban.com、www.cngadget.cn..发现更多精彩" autocomplete="off"/>
+					<!-- _csrf 防止post提交出现403 forbidden --> 
+					<input type='hidden' name='_csrf' value='<%= csrf %>' />
+					<input class="photo-btn" type="submit" value="吐吐" onclick="return validatorNull()"/>
+				</form>
+				<ul class="tips">
+					<li>通过输入页面对应地址，查找页面图片</li>
+					<li>暂不支持权限页面的图片搜索</li>
+				</ul>
+	            	
+	           </div>
+	     </div>
+
+
+<div class="loading_css3 fn-hide">精彩图片，立马奉上!</div>
+<div class="photo-cnt">
+<% if(packages.length > 0 ) { %>          
+	<% for (var i = 0,j = packages.length;i < j;i++) {
+		var img = packages[i];
+	%>
+		
+	<%- img %>
+	
+	<% } %>
+<% } else {%>
+	<p class="blank"><%= tip %></p>
+<% } %>	
+</div> 
+
+<script type="text/javascript">
+
+	seajs.use('jquery',function($) {
+		this.validatorNull = function() {
+			
+			if(document.getElementById('photo-text').value == '') {
+			alert('请输入...');
+			return false;
+		}
+		$('.loading_css3').removeClass('fn-hide');
+	
+		return true;
+		}
+	})
+
+</script>

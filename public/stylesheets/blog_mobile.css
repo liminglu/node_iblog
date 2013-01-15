@@ -1,0 +1,294 @@
+	/* mobile css */
+	body {
+		width: 100%;
+	}
+	
+	.login {
+		top:58px;
+	}
+	.login #wb_connect_btn, .login .signup  {
+/* 		float: right; */
+	    margin-right: 50px;
+	}
+	
+	.blog-create {
+		right: 40px;
+		position: absolute;
+		top: 5px;
+	}
+	
+	.signout {
+		right: 0;
+		position: absolute;
+		top: 5px;
+	}
+
+	/* rewrite profile */
+	.nav {
+		width: 100%;
+	}
+	
+	.sub-nav {
+		height: 32px;
+		clear: both;
+		margin-top: 60px;
+		padding: 20px 0 43px 0;
+		font-size: 24px;
+		text-align: left;
+		width: 100%;
+		list-style: none;
+	}
+	
+	.sub-nav .hot {
+		position: absolute;
+		top: -20px;
+		left: 20px;
+	}
+	
+	.sub-nav li.sub-nav-item {
+		float: left;
+		padding-right: 26px;
+		padding-right: 25px\9;
+		list-style: none;
+		position: relative;
+		font-size: 18px;
+	}
+	
+	
+	.sub-nav li.sub-nav-item a {
+		color: #777;
+		text-shadow: 0 0 2px #AAA;
+		text-decoration: none;
+		-webkit-transition: text-shadow 500ms ease-in 0ms, color 500ms ease-in 0ms;
+	}
+	
+	.blog .main {
+		width: 100%;
+	}
+	
+	.blog .sidebar {
+
+	}
+	
+	.blog .articlemenu {
+/* 		float: left; */
+/* 		width: 720px; */
+		line-height: 1.8;
+		padding: 5px 0 30px 5px;
+		margin-bottom: 10px;
+/* 		background: url(/images/content_text_line.png) center bottom no-repeat; */
+		list-style: none;
+	}
+	
+	.blog .avatar {
+		padding: 1px;
+/* 		float: left; */
+		width: 50px;
+		height: 50px;
+		overflow: hidden;
+		border: 1px solid #333;
+	}
+	
+	.blog a.blogTitle {
+/* 		float: left; */
+		color: #1982D1;
+		font-size: 26px;
+		text-decoration: none;
+		padding: 0 0px 0 15px;
+/* 		width: 590px; */
+		height: 33px;
+		line-height: 33px;
+		overflow: hidden;
+		font-family: Michroma,'Segoe UI Light','Segoe UI','Segoe UI WP','Microsoft Jhenghei','微软雅黑',sans-serif,Times;
+		font-family: Michroma,'Segoe UI WP','Microsoft Jhenghei','微软雅黑',sans-serif /9;
+	}
+	
+	.blog .comments {
+		zoom: 1;
+		float: right;
+		position: relative;
+		top:-30px;
+		left: -60px;
+	}
+	.blog a.up {
+		width: 42px;
+		height: 39px;
+		padding-top: 1px;
+		color: white;
+		font-size: 14px;
+		font-weight: bold;
+		text-align: center;
+		font-family: Georgia;
+		overflow: hidden;
+		position: absolute;
+/* 		right: 0px; */
+
+		background-image: url(/images/newtip.png);
+		background-repeat: no-repeat;
+		background-position: 0 0;
+		text-decoration: none;
+	}
+	
+	.blog .content_banner {
+/* 		float: left; */
+		padding: 15px 0 0 15px;
+		overflow: hidden;
+	}
+	
+	.blog .content_banner .text, .blog .text1 {
+		clear: both;
+		font-size: 14px;
+		line-height: 24px;
+		_position: static;
+		position: relative;
+		overflow: hidden;
+	}
+	
+	.blog .content_banner .text p, .blog .content_banner .text1 p {
+		clear: both;
+		padding: 7px 0;
+		margin: 0;
+		color: #444;
+		font-size: 14px;
+		line-height: 1.8;
+	}
+	
+	.blog .syntaxhighlighter {
+		background-color: #F5F2F0 !important;
+		background: url(noise.png), -webkit-linear-gradient(left, #EDE7E3 1px, transparent 1px) 2.8em 0 no-repeat;
+		border-radius: 10px;
+		-moz-border-radius: 10px;
+		-webkit-border-radius: 10px;
+	}
+	
+	
+	.blog .blogPs {
+/* 		float: left; */
+/* 		width: 500px; */
+		height: 16px;
+		line-height: 0;
+		overflow: hidden;
+		font-size: 12px;
+		padding: 8px 0 0 18px;
+	}
+	
+	.blog .toolBar,.blog .toolBar1 {
+/* 		float: left; */
+/* 		width: 720px; */
+		position: relative;
+	}
+	
+	.blog .toolBar .more {
+/* 		float: left; */
+		margin: 15px 0 0 15px;
+		font-size: 14px;
+		color: #1982D1;
+		text-decoration: none;
+		background: url(/images/more.png) no-repeat transparent;
+		background-position: right 3px;
+		padding-right: 28px;
+		display: inline-block;
+		height: 100%;
+		line-height: 28px;
+	}
+	.pagenavi {
+	margin-left: 80px;
+	padding:1em 0 1.5em;
+	/*overflow:hidden;*/
+	}
+	.page-numbers {
+		font-family:tahoma;
+		font-size:16px;
+		font-weight:normal;
+		width:34px;
+		height:45px;
+		padding-top:11px;
+		text-decoration:none;
+		display:inline-block;
+		text-align:center;
+		color: #686868;
+		border: 1px solid #DDD;
+		margin:1px;
+		float:left;
+	
+	}
+	.page-numbers1 {
+		font-size:16px;
+		color: #686868;
+		padding:10px 5px 5px 5px;
+		float:left;
+	}
+	.pagenavi a{
+		-webkit-transition: text-shadow 500ms ease-in 0ms,color 430ms ease-in 0ms,background 430ms ease-in 0ms;
+		-moz-transition: text-shadow 500ms ease-in 0ms,color 430ms ease-in 0ms,background 430ms ease-in 0ms;
+		-ms-transition: text-shadow 500ms ease-in 0ms,color 430ms ease-in 0ms,background 430ms ease-in 0ms;
+		-o-transition: text-shadow 500ms ease-in 0ms,color 430ms ease-in 0ms,background 430ms ease-in 0ms;
+		transition: text-shadow 500ms ease-in 0ms,color 430ms ease-in 0ms,background 430ms ease-in 0ms;
+	}
+	.page-numbers:hover {
+		background:#33abdd;
+		color:white;
+		-webkit-transition: background 200ms ease-in 0ms, color 200ms ease-in 0ms, font-size 200ms ease-in 0ms;
+		-moz-transition: background 200ms ease-in 0ms, color 200ms ease-in 0ms, font-size 200ms ease-in 0ms;
+		-ms-transition: background 200ms ease-in 0ms, color 200ms ease-in 0ms, font-size 200ms ease-in 0ms;
+		-o-transition: background 200ms ease-in 0ms, color 200ms ease-in 0ms, font-size 200ms ease-in 0ms;
+		transition: background 200ms ease-in 0ms, color 200ms ease-in 0ms, font-size 200ms ease-in 0ms;
+	}
+	.page-nextpre,
+	.next,
+	.prev{
+		width:50px;
+	}
+	.pagenavi .current {
+		background:#3C454F;
+		color:white;
+	
+	}
+
+	
+	.sidebar .widget {
+		clear: both;
+/* 		width: 240px; */
+		height: auto;
+		margin-top: 20px;
+	}
+	
+	.sidebar .ilovertitle {
+		background: #3C454F;
+		padding: 5px;
+/* 		margin-top: 20px; */
+		color: white;
+	}
+	
+	.sidebar .ilovertitlespan {
+		font-family: Michroma,'Segoe UI Light','Segoe UI','Segoe UI WP','Microsoft Jhenghei','微软雅黑','Hiragino Sans GB W3';
+		-webkit-font-smoothing: antialiased;
+		font-family: Michroma,'Segoe UI WP','Microsoft Jhenghei','微软雅黑',sans-serif /9;
+		font-size: 20px;
+		padding: 5px;
+	}
+	
+	.sidebar .widget ul {
+		margin: 10px;
+		list-style: none;
+	}
+	
+	.sidebar .widget li a {
+		padding: 0 5px 0 0;
+		line-height: 26px;
+		font-size: 12px;
+		color: #1982D1;
+		text-decoration: none;
+	}
+	
+	#footer,#footerbar {
+		min-width: 990px;
+		height: 100px;
+		text-align: center;
+		line-height: 100px;
+	}
+	
+	.copyright span {
+		font-size: 12px;
+		color: #4E4E4E;
+	}

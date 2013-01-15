@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:wb="http://open.weibo.com/wb">
+	<head>
+		<!-- meta -->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name='description' content='<%= config.description %>'>
+		<meta property="wb:webmaster" content="a3cb84569b90f2f5" />
+		
+		<%
+		var headers = config.site_headers || [];
+		for (var i = 0, l = headers.length; i < l; i++) { 
+		%>
+		<%- headers[i] %>
+		<% } %>
+		<link title="RSS" type="application/rss+xml" rel="alternate" href="/rss" />
+		<link charset="utf-8" rel="stylesheet" href="https://a.alipayobjects.com/al/alice.style.apps-1.1.css" media="all" />
+		<!-- style -->
+		
+		<% if(locals.style) {%>
+		
+			<%- style %>
+		<% } %>
+		<!-- style -->
+	
+		<title><%= config.description %></title>
+		
+		
+		<link rel="shortcut icon" href="../images/waylon-xicon.ico" type="image/x-icon" />
+
+
+		<script charset="utf-8" id="seajsnode" 
+		    src="http://static.alipayobjects.com/seajs/1.2.1/??sea.js,plugin-combo.js">
+		</script>
+		
+		<script>
+
+			    
+			    seajs.config({
+				    alias: {
+				      '$': 'gallery/jquery/1.7.2/jquery',
+				      '$-debug':'gallery/jquery/1.7.2/jquery',
+				      'jquery':'gallery/jquery/1.7.2/jquery',
+				      'popup': 'arale/popup/0.9.9/popup',
+				      'switchable': 'arale/switchable/0.9.11/switchable',
+				      'slide':'arale/switchable/0.9.11/slide'
+				    }
+				 });
+		</script>
+
+
+<!-- platinum seo pack 1.3.7 -->
+<meta name="robots" content="index,follow,noodp,noydir" />
+<meta name="description" content="waylon" />
+<meta name="keywords" content="waylon" />
+<link rel="canonical" href="" />
+<!-- /platinum one seo pack -->
+	</head>
+	<body>
+			
+		
+				<%- body %>
+	
+
+</body>
+</html>	

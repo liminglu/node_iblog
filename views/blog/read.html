@@ -1,0 +1,585 @@
+<style type="text/css">
+
+	.login {
+		top:58px;
+	}
+	.login #wb_connect_btn {
+		float: right;
+	    margin-right: 50px;
+	}
+	
+	.blog-create {
+		right: 0;
+		position: absolute;
+		top: 5px;
+	}
+	
+	.sub-nav {
+		height: 32px;
+		clear: both;
+		margin-top: 60px;
+		padding: 20px 0 43px 0;
+		font-size: 24px;
+		text-align: left;
+		width: 100%;
+		list-style: none;
+	}
+	
+	.sub-nav .hot {
+		position: absolute;
+		top: -20px;
+		left: 20px;
+	}
+	
+	.sub-nav li.sub-nav-item {
+		float: left;
+		padding-right: 26px;
+		padding-right: 25px\9;
+		list-style: none;
+		position: relative;
+	}
+	
+	
+	.sub-nav li.sub-nav-item a {
+		color: #777;
+		text-shadow: 0 0 2px #AAA;
+		text-decoration: none;
+		-webkit-transition: text-shadow 500ms ease-in 0ms, color 500ms ease-in 0ms;
+	}
+	
+	.blog .main {
+		float: left;
+/* 		border:1px solid #ccc; */
+		width: 750px;
+	}
+	
+	.blog .sidebar {
+		float: right;
+/* 		border: 1px dashed #ccc; */
+		width: 240px;
+	}
+	
+	.blog .articlemenu {
+		float: left;
+		width: 720px;
+		line-height: 1.8;
+		padding: 5px 0 30px 5px;
+		margin-bottom: 10px;
+		background: url(images/content_text_line.png) center bottom no-repeat;
+		list-style: none;
+	}
+	
+	.blog .avatar {
+		padding: 1px;
+		float: left;
+		width: 50px;
+		height: 50px;
+		overflow: hidden;
+		border: 1px solid #333;
+	}
+	
+	.blog a.blogTitle {
+/* 		float: left; */
+		color: #1982D1;
+		font-size: 26px;
+		text-decoration: none;
+		padding: 0 0px 0 15px;
+		width: 590px;
+		height: 33px;
+		line-height: 33px;
+		overflow: hidden;
+		font-family: Michroma,'Segoe UI Light','Segoe UI','Segoe UI WP','Microsoft Jhenghei','微软雅黑',sans-serif,Times;
+		font-family: Michroma,'Segoe UI WP','Microsoft Jhenghei','微软雅黑',sans-serif /9;
+	}
+	
+	.blog .comments {
+		zoom: 1;
+		float: right;
+		position: relative;
+		top:-30px;
+		left: -60px;
+		font-size: 12px;
+		
+	}
+	.blog a.up {
+		width: 42px;
+		height: 39px;
+		padding-top: 1px;
+		color: white;
+		font-size: 14px;
+		font-weight: bold;
+		text-align: center;
+		font-family: Georgia;
+		overflow: hidden;
+		position: absolute;
+/* 		right: 0px; */
+
+		background-image: url(images/newtip.png);
+		background-repeat: no-repeat;
+		background-position: 0 0;
+		text-decoration: none;
+	}
+	
+	.blog .content_banner {
+		float: left;
+		width: 643px;
+		padding: 15px 0 0 15px;
+		overflow: hidden;
+	}
+	
+	.blog .content_banner .text, .blog .text1 {
+		clear: both;
+		font-size: 14px;
+		line-height: 24px;
+		_position: static;
+		position: relative;
+		overflow: hidden;
+	}
+	
+	.blog .content_banner .text p, .blog .content_banner .text1 p {
+		clear: both;
+		padding: 7px 0;
+		margin: 0;
+		color: #444;
+		font-size: 14px;
+		line-height: 1.8;
+	}
+	
+	.blog .syntaxhighlighter {
+		background-color: #F5F2F0 !important;
+		background: url(noise.png), -webkit-linear-gradient(left, #EDE7E3 1px, transparent 1px) 2.8em 0 no-repeat;
+		border-radius: 10px;
+		-moz-border-radius: 10px;
+		-webkit-border-radius: 10px;
+	}
+	
+	
+	.blog .blogPs {
+		float: left;
+		width: 500px;
+		height: 16px;
+		line-height: 0;
+		overflow: hidden;
+		font-size: 12px;
+		padding: 8px 0 0 18px;
+	}
+	
+	.blog .toolBar,.blog .toolBar1 {
+		float: left;
+		width: 720px;
+		position: relative;
+	}
+	
+	.blog .toolBar .more {
+		float: left;
+		margin: 0 0 20px 75px;
+		font-size: 14px;
+		color: #1982D1;
+		text-decoration: none;
+		background: url(images/more.png) no-repeat transparent;
+		background-position: right 3px;
+		padding-right: 28px;
+		display: inline-block;
+		height: 100%;
+		line-height: 28px;
+	}
+	
+	.sidebar .widget {
+		clear: both;
+		width: 220px;
+		height: auto;
+	}
+	
+	.sidebar .ilovertitle {
+		background: #3C454F;
+		padding: 5px;
+/* 		margin-top: 20px; */
+		color: white;
+	}
+	
+	.sidebar .ilovertitlespan {
+		font-family: Michroma,'Segoe UI Light','Segoe UI','Segoe UI WP','Microsoft Jhenghei','微软雅黑','Hiragino Sans GB W3';
+		-webkit-font-smoothing: antialiased;
+		font-family: Michroma,'Segoe UI WP','Microsoft Jhenghei','微软雅黑',sans-serif /9;
+		font-size: 20px;
+		padding: 5px;
+	}
+	
+	.sidebar .widget ul {
+		margin: 10px;
+		list-style: none;
+	}
+	
+	.sidebar .widget li a {
+		padding: 0 5px 0 0;
+		line-height: 26px;
+		font-size: 12px;
+		color: #1982D1;
+		text-decoration: none;
+	}
+
+
+</style>
+
+<div class="wapper fn-clear">
+	            <div class="nav top">
+	            	<a onfocus="this.blur()" href="http://www.liminglu.cn" id="logo" title="waylon"><cite>waylon</cite><img style="" src="/images/waylon-new.png" width="60" height="60" /></a>
+	            	<!--
+<a href="/" class="active"> home</a>
+	            	<a href="/blog" class="active"> blog</a> 
+	            	<a href="/ui" class="active"> css3</a>
+-->
+	           </div>
+	           <div class="login nav"> 
+	           		<div id="wb_connect_btn">
+	           			
+	           		</div>
+	           		<a href="/blog/add" class="blog-create fn-hide">发博文</a>
+	           </div>
+	          
+	           
+	           		
+	           
+</div>
+<!-- navigator -->
+<ul class="sub-nav">
+	<li class="sub-nav-item"><a href="/wd">Geek</a></li>
+<!-- 	<li class="sub-nav-item"><a href="#">Demo</a></li> -->
+	<li class="sub-nav-item"><a href="/photo"><span class="hot"><img src="https://i.alipayobjects.com/e/201211/1dacLwrWJZ.png"></span>Photo</a></li>
+	 
+</ul>
+
+
+<div class="blog">
+	<div class="main">
+
+<!-- blogs -->	
+
+<% if(locals.blogs && locals.blogs.length > 0 ) { %>
+  
+
+
+	<% for (var i = 0; i < blogs.length; i++) {
+        var blog = blogs[i];
+        var month = parseInt(blog.create_at.getMonth()) + 1;
+        var day = blog.create_at.getDate();
+        var blog_id = blog._id;
+        var create_at = blog.create_at.getFullYear() + '/' + month + '/' + day;      
+    %>
+    <ul class="articlemenu">
+    <li> <a href="" class="animated tada" target="_blank"><img alt="minren" src="/images/me_icon_50.png" file="/images/me_icon_50.png" class="avatar  animated tada avatar-43 photo" height="43" width="43" lazyloadpass="1" style="opacity: 1; "></a> 
+        <a
+        href=""
+        class="blogTitle" rel="bookmark" title="<%= blog.title %>"><%= blog.title %></a>
+            <div class="blogPs"><!--
+In <a href="http://www.alloyteam.com/category/webfrontend/css3/" title="查看 CSS3 中的全部文章"
+                rel="category tag">CSS3</a>,<a href="http://www.alloyteam.com/category/webfrontend/html5/"
+                title="查看 HTML5 中的全部文章" rel="category tag">HTML5</a>,<a href="http://www.alloyteam.com/category/webfrontend/"
+                title="查看 Web前端 中的全部文章" rel="category tag">Web前端</a>
+--> on <%= create_at %><!--
+ by
+                <a
+                href="http://www.alloyteam.com/author/minren/" title="由 minren 发布" rel="author">minren</a>view: 204
+--></div> <!-- <span class="comments"><a href="" class="up" title="<%= blog.title %>">5</a></span> -->
+
+            <!--content_banner-->
+            <div class="content_banner">
+                <div class="text">
+  					<%- blog.content %>
+            	</div>
+            </div>
+
+    	</li>
+    </ul>
+     <% } %>
+	
+	 <% } %>
+<!-- blogs -->
+
+<!-- comment -->
+	
+<div id="comments" class="comments">
+<% if(locals.replys && locals.replys.length > 0 ) { %>
+	
+<ol class="commentlist">
+	<% for (var i = 0; i < replys.length; i++) {
+        var reply = replys[i];
+        var month = parseInt(reply.create_at.getMonth()) + 1;
+        var day = reply.create_at.getDate();
+        var reply_id = reply._id;
+        var create_at = reply.create_at.getFullYear() + '/' + month + '/' + day;      
+    %>
+    <li class="comment even thread-even depth-1" id="li-comment-3799">
+     
+        <div
+        id="comment-3799" class="comment_c">
+            	<h2>
+			<a rel="" class="url"><%= reply.nickname %></a><span class="c_time"><%= create_at %></span>
+		</h2>
+
+            <p><%= reply.content %></p>
+           <!--
+ <div
+            class="reply">	<a class="comment-reply-link" href="/2012/11/compare-wpf-and-html5-in-windows8-development/?replytocom=3799#respond"
+                onclick="return addComment.moveForm(&quot;comment-3799&quot;, &quot;3799&quot;, &quot;respond&quot;, &quot;3999&quot;)">回复</a>	
+                </div>
+-->
+                </div>
+    </li>
+     <% } %>
+</ol>
+
+ <% } %>
+    <script type="text/javascript">
+        var defaultAuthor = "称呼(必填)";
+        var defaultEmail = "邮箱(不会被公开,必填)";
+        var defaultUrl = "网站";
+        var defaultComment = "评论内容...";
+
+        function commentform_submit() {
+        	
+            if (document.getElementById('author').value == '' || document.getElementById('author').value == defaultAuthor) {
+                alert('咳咳...称呼忘填了');
+                document.getElementById('author').focus();
+                return false;
+            }
+
+            if (document.getElementById('comment').value == '' || document.getElementById('comment').value == defaultComment) {
+                alert('评论内容在哪？');
+                document.getElementById('comment').focus();
+                return false;
+            }
+            if (document.getElementById('url').value == defaultUrl) document.getElementById('url').value = '';
+/*              document.getElementById('commentform').submit(); */
+			return true;
+        }
+    </script>
+    <div class="clearfix"></div>
+    <div id="respond" class="commentform">
+        	<h3>发表评论</h3>
+
+        <div class="cancel-comment-reply"><a rel="nofollow" id="cancel-comment-reply-link" href="/2012/11/html5-cors/#respond"
+            style="display:none;">点击这里取消回复。</a>
+        </div>
+        <form action="/blog/<%= blog_id %>/reply" method="post"
+        id="commentform">
+            <p>
+                <input type="text" name="author" id="author" value="" size="22" tabindex="1">
+                <label for="author"><small>称呼 (必填)</small>
+                </label>
+            </p>
+            <p>
+                <input type="text" name="email" id="email" value="" size="22" tabindex="2">
+                <label for="email"><small>邮箱 (不会被公开,必填)</small>
+                </label>
+            </p>
+            <p>
+                <input type="text" name="url" id="url" value="" size="22" tabindex="3">
+                <label for="url"><small>网站</small>
+                </label>
+            </p>
+            <p>
+                <textarea name="comment" id="comment" cols="100%" rows="6" tabindex="4"
+                onkeydown="if(event.ctrlKey&amp;&amp;event.keyCode==13){document.getElementById('submit').click();return false};"></textarea>
+                <div id="loading" style="display: none; ">发送中...</div>
+                <div id="error" style="display: none; ">#</div>
+            </p>
+            <p>
+                <input name="submit" type="submit" id="submit" tabindex="5" value="提 交" onclick="return commentform_submit()">
+<!--                 <input type="hidden" name="comment_post_ID" value="<%= blog_id %>" id="comment_post_ID"> -->
+               
+                <!-- _csrf 防止post提交出现403 forbidden --> 
+				<input type='hidden' name='_csrf' value='<%= csrf %>' />
+            </p>
+            <p style="display: none;">
+                <input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce"
+                value="7e0cdbe687">
+            </p>
+        </form>
+    </div>
+</div>
+
+<!-- comment -->	
+	</div>
+	<div class="sidebar">
+		
+<div class="widget">
+    <div class="ilovertitle"><span class="ilovertitlespan">友情链接</span>
+    </div>
+    <ul class="xoxo blogroll">
+        <li><a href="http://alloyteam.github.com/" title="Tencent AlloyTeam on Github.com"
+            target="_blank">AlloyTeam on Github.com</a>
+        </li>
+        <li><a href="http://cnblogs.com/Cson/">Cson's Room</a>
+        </li>
+        <li><a href="http://www.errs.cc" title="Errorera’s Blog">Errorera's Blog</a>
+        </li>
+        <li><a href="http://www.gtdlife.com/" target="_blank">GTDLife | 时间管理行动家</a>
+        </li>
+        <li><a href="http://www.html5dw.com/" title="HTML5 梦工场" target="_blank">HTML5 梦工场</a>
+        </li>
+        <li><a href="http://imatlas.com" rel="friend met co-worker" title="Web前端的技术分享与讨论"
+            target="_blank">imatlas</a>
+        </li>
+        <li><a href="http://blog.biqing.me/" rel="friend met co-worker" target="_blank">Infinity World</a>
+        </li>
+        <li><a href="http://oscartong.tumblr.com/" rel="co-worker" target="_blank">iOSCAR</a>
+        </li>
+        <li><a href="http://www.itzhai.com/" title="http://www.itzhai.com/">IT 宅</a>
+        </li>
+        <li><a href="http://Kinvix.AlloyTeam.com" rel="acquaintance co-worker colleague co-resident"
+            title="i在云端 – Kinvix" target="_blank">i在云端 – Kinvix</a>
+        </li>
+        <li><a href="http://duwei.herokuapp.com/" rel="friend met co-worker" target="_blank">Too simple to blog</a>
+        </li>
+        <li><a href="http://www.v2ex.com/" title="V2EX – 创意工作者们的社区" target="_blank">V2EX</a>
+        </li>
+        <li><a href="http://www.w3cplus.com/" target="_blank">W3C Plus</a>
+        </li>
+        <li><a href="http://www.w3ctech.com/" target="_blank">W3CTech</a>
+        </li>
+        <li><a href="http://www.css88.com" target="_blank">Web 前端开发</a>
+        </li>
+        <li><a href="http://adc-cn.org/" target="_blank">中国青少年开发者大会</a>
+        </li>
+        <li><a href="http://madscript.com/" rel="friend met co-worker" target="_blank">元彦の程序世界</a>
+        </li>
+        <li><a href="http://www.html6game.com/" target="_blank">前端开发网</a>
+        </li>
+        <li><a href="http://www.qianduan.net/" target="_blank">前端观察</a>
+        </li>
+        <li><a href="http://hongru.cnblogs.com/" rel="friend co-worker" target="_blank">叶落为重生</a>
+        </li>
+        <li><a href="http://ooxx.me/" target="_blank">大猫の意淫筆記</a>
+        </li>
+        <li><a href="http://www.quchao.com/" rel="friend met co-worker" target="_blank">時計坂一刻館三号室</a>
+        </li>
+        <li><a href="http://ued.taobao.com/" target="_blank">淘宝 UED</a>
+        </li>
+        <li><a href="http://www.cnblogs.com/hooray/">胡尐睿丶可惜我是程序猿</a>
+        </li>
+        <li><a href="http://cdc.tencent.com" target="_blank">腾讯 CDC</a>
+        </li>
+        <li><a href="http://flashteam.tencent.com/" target="_blank">腾讯 FlashTeam</a>
+        </li>
+        <li><a href="http://gdc.qq.com" target="_blank">腾讯 GDC</a>
+        </li>
+        <li><a href="http://isd.tencent.com/" target="_blank">腾讯 ISD</a>
+        </li>
+        <li><a href="http://impd.tencent.com/" target="_blank">腾讯 QQ客户端团队博客</a>
+        </li>
+        <li><a href="http://djt.qq.com" target="_blank">腾讯大讲堂</a>
+        </li>
+        <li><a href="http://tgideas.qq.com/" target="_blank">腾讯游戏 TGideas</a>
+        </li>
+        <li><a href="http://www.blueidea.com/" target="_blank">蓝色理想</a>
+        </li>
+        <li><a href="http://blog.lifeclaw.com" rel="friend met co-worker" target="_blank">雪泥鸿爪</a>
+        </li>
+        <li><a href="http://www.wheattime.com/" target="_blank">麦时</a>
+        </li>
+    </ul>
+</div>
+	</div>
+</div>
+<!-- to top -->
+<a href="#" id="dynamic-to-top" class="dynamic-to-top fn-hide"><span>&nbsp;</span></a>
+<script src=" http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=1867004476" type="text/javascript" charset="utf-8"></script>
+
+<script type="text/javascript">
+	seajs.use(['jquery','alipay/xbox/0.9.7/xbox-debug'],function($,Xbox) {
+		
+		var xbox = new Xbox({
+                type: 'iframe',
+                trigger: '.blog-create',
+                height:'350px',
+                width:'510px',
+                isOld:true
+        }).before('show',function() {
+         this.set('content', this.activeTrigger.attr('href'));
+    	}).render();
+    	
+    	//jquery版本的订阅与发布事件
+		/*
+		**订阅与绑定事件差异
+		**订阅的相当于是接口，不需要考虑具体的实现；而绑定与业务绑定，根据当前逻辑考虑实现
+		**订阅是一种广播通信形式，而绑定不具有通信;广播的好处在于不用通知调用者，达到解耦合
+		*/
+    	(function ($) {
+		
+		    var o = $({});
+		
+		    $.subscribe = function () {
+		        o.on.apply(o, arguments);
+		    };
+		
+		    $.unsubscribe = function () {
+		        o.off.apply(o, arguments);
+		    };
+		
+		    $.publish = function () {
+		        o.trigger.apply(o, arguments);
+		    };
+		
+		} ($));
+		
+		//scroll事情，当窗体高度＋滚轮高度大于文档高度时，显示向上箭头
+    	$(window).scroll(function () {
+    	 	
+    		 if (($(window).height() + $(window).scrollTop()) >= $('body').height() * 2) {
+    		 	//显示向上箭头
+    		 	$.publish('topic/show',["#dynamic-to-top"]);
+    		 }else if(($(window).height() + $(window).scrollTop()) <= $('body').height()) {
+    		 	$.publish('topic/hide',["#dynamic-to-top"]);
+    		 }
+    	})
+    	
+    	$('.dynamic-to-top').click(function() {
+    		//隐藏向上箭头
+    		$.publish('topic/hide',["#dynamic-to-top"]);
+    	})
+    	
+    	//订阅事件与对应的回调函数
+    	$.subscribe('topic/show',show);
+    	$.subscribe('topic/hide',hide);
+    	
+		
+		//负责显示对象
+		function show() {
+			
+			for(var i = 0,j = arguments.length;i < j;i++) {
+				//console.log(arguments[i]);
+				$(arguments[i]).removeClass('fn-hide');
+				
+			}
+		}
+		
+		//负责隐藏对象
+		function hide() {
+			for(var i = 0,j = arguments.length;i < j;i++) {
+				$(arguments[i]).addClass('fn-hide');
+			}
+		}
+	
+	
+	//weibo login widget
+	WB2.anyWhere(function(W){
+		W.widget.connectButton({
+			id: "wb_connect_btn",	
+			type:'3,2',
+			callback : {
+				login:function(o){	//登录后的回调函数
+/* 					alert("login: "+o.screen_name)	 */
+					$('.blog-create').removeClass('fn-hide');
+				},
+				logout:function(){	//退出后的回调函数
+/* 					alert('logout'); */
+					$('.blog-create').addClass('fn-hide');
+				}
+			}
+		});
+	});
+	
+	})
+	
+</script>

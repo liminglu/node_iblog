@@ -1,0 +1,12 @@
+info: socket.io started
+=======waylon listening on port %d in %s mode===============
+==========8080 development============
+========================================================
+warn: error raised: Error: listen EADDRINUSE
+[[32mINFO[0m] Restarting
+info: socket.io started
+=======waylon listening on port %d in %s mode===============
+==========3000 development============
+========================================================
+访问者正在访问的是: www.taobao.com
+debug fetch photo hostwww.taobao.com path 
