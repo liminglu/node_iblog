@@ -5,7 +5,7 @@ node_iblog
 
 系统自带一个mongodb数据源，如果你本地mongodb数据库，当然你可以在config.js中修改mongodb配置。
 
-安装
+环境
 ==========
 
 如果需要更换系统自带mongdb配置，请首先确认本机已经正确安装mongdb，然后修改系统自带配置(config.js)，最后正确启动mongdb!
@@ -14,7 +14,12 @@ node_iblog
 
 确保你本机正确安装了nginx和node
 
-配置
+如果你本机没有正确安装nginx,请在本次运行brew install nginx,如果本机没有brew命令.
+
+请运行ruby -e "$(curl -fsSkL raw.github.com/mxcl/homebrew/go)" 查考http://mxcl.github.com/homebrew/
+
+安装
+==========
 
 将源码clone到本地
 
