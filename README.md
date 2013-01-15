@@ -27,6 +27,7 @@ node_iblog
 
 
 启动
+==========
 
 path/to/your/node_iblog/中，使用 node app.js 启动应用
 
