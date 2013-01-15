@@ -20,7 +20,7 @@ exports.config = {
   ],
   site_static_host: '', // 静态文件存储域名
 
-  db: 'mongodb://waylon:123456@42.121.3.64/node',
+  db: 'mongodb://node_iblog:123456@42.121.3.64/node', //node_iblog readOnly account
   session_secret: 'waylon',
   auth_cookie_name: 'waylon',
   port: 3000, //8080 会于本地nginx端口冲突
